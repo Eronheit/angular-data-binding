@@ -95,5 +95,7 @@
     <h3>Input/Output Properties</h3>
 
     <app-curso [nome]='nomeDoCurso'></app-curso>
+
+    <counter [value]="valorInicial" (hasChangeValue)="onChangeValue($event)"></counter>
   </article>
 </section>
