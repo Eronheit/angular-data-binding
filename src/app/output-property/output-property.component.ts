@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'counter',
@@ -11,13 +11,15 @@ export class OutputPropertyComponent implements OnInit {
 
   @Output() hasChangeValue = new EventEmitter();
 
+  @ViewChild('campoInput') campoValorInput!: ElementRef;
+
   increment() {
-    this.value++;
+    this.campoValorInput.nativeElement.value++;
     this.hasChangeValue.emit({ newValue: this.value })
   }
 
   decrement(){
-    this.value--;
+    this.campoValorInput.nativeElement.value--;
     this.hasChangeValue.emit({ newValue: this.value })
   }
 
